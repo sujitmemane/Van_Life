@@ -1,14 +1,18 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const VanElement = (props) => {
   return (
-    <div className="w-1/4 border m-2 p-8">
-      <img src={props.imageUrl} />
-      <div>
-        <h3>{props.name}</h3>
-        <p>{props.price}</p>
-      </div>
-      <button> {props.type} </button>
+    <div className="w-3/4  m-2 px-1 ">
+      <Link to={`/vans/${props.id}`}>
+        <img src={props.imageUrl} className="w-full h-auto rounded-lg  " />
+        <div className="mt-2 flex justify-between items-center">
+          <h3 className="text-2xl font-bold">{props.name}</h3>
+          <p className="text-xl">Rs. {props.price}</p>
+        </div>
+        <button className={`px-8 py-2 text-white ${props.type} rounded mt-4`}>
+          {props.type}
+        </button>
+      </Link>
     </div>
   );
 };

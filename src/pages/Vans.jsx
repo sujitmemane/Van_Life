@@ -39,7 +39,7 @@ const Vans = () => {
       <h1 className="text-5xl text-center font-bold">
         Explore our van options
       </h1>
-      <div className="flex flex-row items-center justify-around space-x-12 flex-wrap border p-8">
+      <div className=" grid grid-cols-3 justify-items-center items-center my-4">
         {vansElements}
       </div>
     </div>
