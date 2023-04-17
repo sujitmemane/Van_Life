@@ -35,7 +35,7 @@ const Vans = () => {
     />
   ));
   return (
-    <div className="mx-auto container mt-8">
+    <div className="mx-auto container mt-24">
       <h1 className="text-5xl text-center font-bold">
         Explore our van options
       </h1>

@@ -8,7 +8,7 @@ import "./server.js";
 function App() {
   return (
     <BrowserRouter>
-      <nav className="container mx-auto  flex flex-row items-center justify-between py-4 px-8 ">
+      <nav className="w-full  flex flex-row items-center justify-between py-4 px-8 fixed  top-0 z-50 bg-white">
         <Link to="/" className="text-2xl text-[#333333]">
           <h1>Van Life 🛻</h1>
         </Link>

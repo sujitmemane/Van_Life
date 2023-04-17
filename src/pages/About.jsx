@@ -3,7 +3,7 @@ import AboutImage from "./../assets/about-hero.png";
 import { Link } from "react-router-dom";
 const About = () => {
   return (
-    <div>
+    <div className="mt-4">
       <img
         src={AboutImage}
         className="object-cover rounded shadow  w-[1380px] mx-auto bg-gradient-to-b from-black via-black-opacity-46 to-transparent"
