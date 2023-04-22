@@ -1,31 +1,34 @@
 import "./App.css";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from "./pages/Vans";
-import VanDetails from "./pages/VanDetails";
+import Vans from "./pages/vans/Vans";
+import VanDetails from "./pages/vans/VanDetails";
+import Dashboard from "./pages/host/Dashboard";
+import Income from "./pages/host/Income";
+import HostVans from "./pages/host/HostVans";
+import HostVanDetails from "./pages/host/HostVanDetails";
+import Reviews from "./pages/host/Reviews";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import HostLayout from "./components/HostLayout";
+import Layout from "./components/Layout";
 import "./server.js";
 function App() {
   return (
     <BrowserRouter>
-      <nav className="w-full  flex flex-row items-center justify-between py-4 px-8 fixed  top-0 z-50 bg-white">
-        <Link to="/" className="text-2xl text-[#333333]">
-          <h1>Van Life 🛻</h1>
-        </Link>
-        <ul className="uppercase font-bold  text-[#333333] flex space-x-4">
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/vans">Vans</Link>
-          </li>
-        </ul>
-      </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetails />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetails />} />
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVanDetails />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

@@ -23,7 +23,7 @@ const VanDetails = () => {
           <img
             src={vanData.imageUrl}
             alt={vanData.name}
-            className="w-full rounded"
+            className="w-full rounded-lg"
           />
           <button
             className={`px-8 py-2 text-white ${vanData.type} rounded my-4`}

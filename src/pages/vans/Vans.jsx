@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import VanElement from "../components/VanElement";
+import VanElement from "../../components/VanElement";
 const Vans = () => {
   const [vans, setVans] = useState([]);
   useEffect(() => {
@@ -36,9 +36,7 @@ const Vans = () => {
   ));
   return (
     <div className="mx-auto container mt-24">
-      <h1 className="text-5xl text-center font-bold">
-        Explore our van options
-      </h1>
+      <h1 className="text-6xl text-center mt-8">Explore our vans here ...</h1>
       <div className=" grid grid-cols-3 justify-items-center items-center my-4">
         {vansElements}
       </div>
