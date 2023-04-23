@@ -5,26 +5,26 @@ const HostLayout = () => {
     <div className="mt-24 p-8">
       <nav className="uppercase font-bold flex space-x-16">
         <NavLink
-          to="/host"
+          to="."
           end
           className={({ isActive }) => (isActive ? "text-[#FFCC8D]" : "")}
         >
           Dashboard
         </NavLink>
         <NavLink
-          to="/host/income"
+          to="income"
           className={({ isActive }) => (isActive ? "text-[#FFCC8D]" : "")}
         >
           Income
         </NavLink>
         <NavLink
-          to="/host/vans"
+          to="vans"
           className={({ isActive }) => (isActive ? "text-[#FFCC8D]" : "")}
         >
           Vans
         </NavLink>
         <NavLink
-          to="/host/reviews"
+          to="reviews"
           className={({ isActive }) => (isActive ? "text-[#FFCC8D]" : "")}
         >
           Reviews

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-
+import { NavLink, Link, Outlet } from "react-router-dom";
 export default function HostVanDetail() {
   /**
    * Challenge (not optional!): build the shared UI portion of the
@@ -29,16 +29,51 @@ export default function HostVanDetail() {
 
   return (
     <div>
-      <div className="flex flex-row space-x-4 items-center justify-start">
-        <img src={currentVan.imageUrl} width={150} />
+      <Link to=".." relative="path" className="">
+        &larr; <span>Back to all vans</span>
+      </Link>
+      <div className="flex flex-row space-x-4 items-startjustify-start p-2">
+        <img src={currentVan.imageUrl} className="w-48 h-48 rounded" />
         <div>
-          <p className={`px-8 py-2 text-white ${currentVan.type} rounded mt-4`}>
+          <p
+            className={`px-8 py-2 text-center my-4 text-white ${currentVan.type} rounded mt-4`}
+          >
             {currentVan.type}
           </p>
-          <h2>{currentVan.name}</h2>
+          <h2 className="text-3xl">{currentVan.name}</h2>
           <p>{currentVan.price}</p>
         </div>
       </div>
+      <ul className="flex flex-row  space-x-24">
+        <li>
+          <NavLink
+            end
+            to="."
+            className={({ isActive }) => (isActive ? "text-[#FFCC8D]" : "")}
+          >
+            Info
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="pricing"
+            className={({ isActive }) =>
+              isActive ? "text-[#FFCC8D] font-bold" : ""
+            }
+          >
+            Pricing
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="photos"
+            className={({ isActive }) => (isActive ? "text-[#FFCC8D]" : "")}
+          >
+            Photos
+          </NavLink>
+        </li>
+      </ul>
+      <Outlet context={{ currentVan }} />
     </div>
   );
 }
