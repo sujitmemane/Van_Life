@@ -19,11 +19,11 @@ const VanDetails = () => {
   return (
     <div className="container mx-auto">
       {vanData ? (
-        <div className="container w-[920px] mx-auto p-8">
+        <div className="container  mx-auto p-8">
           <img
             src={vanData.imageUrl}
             alt={vanData.name}
-            className="w-full rounded-lg"
+            className="w-48 h-48 rounded-lg"
           />
           <button
             className={`px-8 py-2 text-white ${vanData.type} rounded my-4`}
@@ -31,7 +31,7 @@ const VanDetails = () => {
             {vanData.type}
           </button>
           <p className="text-3xl font-bold">Rs {vanData.price} / Day</p>
-          <p className="text-md my-4">{vanData.description}</p>
+          <p className="text-md my-4 max-w-sm">{vanData.description}</p>
           <button className="bg-[#ff8c38] text-white text-lg px-8 py-2 rounded">
             Rent this Van
           </button>

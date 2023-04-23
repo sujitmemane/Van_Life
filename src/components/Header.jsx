@@ -4,10 +4,10 @@ const Header = () => {
   return (
     <div>
       <nav className="w-full  flex flex-row items-center justify-between py-4 px-8 fixed  top-0 z-50 bg-white">
-        <Link to="/" className="text-2xl text-[#333333]">
-          <h1 className="text-3xl font-bold">VanLife</h1>
+        <Link to="/" className=" md:text-xl text-[#333333]">
+          <h1 className="text-2xl md:text-3xl font-bold">VanLife</h1>
         </Link>
-        <ul className="uppercase font-bold  text-[#333333] flex space-x-8">
+        <ul className="uppercase text-sm md:text-md font-bold  text-[#333333] flex space-x-8">
           <li>
             <NavLink
               to="/host"

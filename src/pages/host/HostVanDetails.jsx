@@ -44,7 +44,7 @@ export default function HostVanDetail() {
           <p>{currentVan.price}</p>
         </div>
       </div>
-      <ul className="flex flex-row  space-x-24">
+      <ul className="flex flex-row  space-x-4 md:space-x-24">
         <li>
           <NavLink
             end

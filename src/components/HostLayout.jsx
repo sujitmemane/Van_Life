@@ -3,7 +3,7 @@ import { Link, Outlet, NavLink } from "react-router-dom";
 const HostLayout = () => {
   return (
     <div className="mt-24 p-8">
-      <nav className="uppercase font-bold flex space-x-16">
+      <nav className="uppercase font-bold flex space-x-4 md:space-x-16">
         <NavLink
           to="."
           end

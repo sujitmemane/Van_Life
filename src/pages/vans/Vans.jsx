@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import VanElement from "../../components/VanElement";
 const Vans = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams.get("age"));
   const [vans, setVans] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
@@ -36,8 +39,10 @@ const Vans = () => {
   ));
   return (
     <div className="mx-auto container mt-24">
-      <h1 className="text-6xl text-center mt-8">Explore our vans here ...</h1>
-      <div className=" grid grid-cols-3 justify-items-center items-center my-4">
+      <h1 className="text-3xl  max-w-xm px-4 md:text-5xl font-bold capitalize text-center mt-8">
+        Explore our vans here...
+      </h1>
+      <div className=" grid grid-cols-2 md:grid-cols-3 justify-items-center items-center my-4">
         {vansElements}
       </div>
     </div>
