@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import VanElement from "../../components/VanElement";
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("age"));
+  const typeFilter = searchParams.get("type");
+
   const [vans, setVans] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
@@ -15,19 +16,12 @@ const Vans = () => {
     };
     fetchAPI();
   }, []);
+  console.log(typeFilter);
+  const displayedVans = typeFilter
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
 
-  //   description: "The Modest Explorer is a van designed to get you out of the house and into nature. This beauty is equipped with solar panels, a composting toilet, a water tank and kitchenette. The idea is that you can pack up your home and escape for a weekend or even longer!"
-  // ​​
-  // id: "1"
-  // ​​
-  // imageUrl: "https://assets.scrimba.com/advanced-react/react-router/modest-explorer.png"
-  // ​​
-  // name: "Modest Explorer"
-  // ​​
-  // price: 60
-  // ​​
-  // type: "simple"
-  const vansElements = vans.map((van) => (
+  const vansElements = displayedVans.map((van) => (
     <VanElement
       name={van.name}
       id={van.id}
@@ -42,6 +36,38 @@ const Vans = () => {
       <h1 className="text-3xl  max-w-xm px-4 md:text-5xl font-bold capitalize text-center mt-8">
         Explore our vans here...
       </h1>
+      <ul className="px-8 m-4 flex flex-row space-x-8">
+        <li>
+          <Link
+            to="?type=simple"
+            className={`px-8 py-2 text-white simple rounded mt-4`}
+          >
+            {" "}
+            Simple{" "}
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="?type=rugged"
+            className={`px-8 py-2 text-white rugged rounded mt-4`}
+          >
+            {" "}
+            Rugged{" "}
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="?type=luxury"
+            className={`px-8 py-2 text-white luxury rounded mt-4`}
+          >
+            {" "}
+            Luxury{" "}
+          </Link>
+        </li>
+        <li>
+          <Link to="."> Clear All </Link>
+        </li>
+      </ul>
       <div className=" grid grid-cols-2 md:grid-cols-3 justify-items-center items-center my-4">
         {vansElements}
       </div>
