@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 const VanDetails = () => {
   const params = useParams();
-  const [vanData, setVanData] = useState(null);
+  const location = useLocation();
+
+  const search = location.state?.search || "";
+  const filter = location.state?.type || "all";
+  console.log(location);
+  console.log(filter);
+  const [vanData, setVanData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +23,10 @@ const VanDetails = () => {
   console.log(vanData);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-24">
+      <Link to={`..?${search}`} relative="path" className="m-98 text-3xl ">
+        &larr; <span>{`Back to ${filter}`} vans</span>
+      </Link>
       {vanData ? (
         <div className="container  mx-auto p-8">
           <img

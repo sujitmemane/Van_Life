@@ -11,6 +11,7 @@ import Reviews from "./pages/host/Reviews";
 import HostVanInfo from "./pages/host/HostVanInfo";
 import HostVanPhotos from "./pages/host/HostVanPhotos";
 import HostVanPricing from "./pages/host/HostVanPricing";
+import Page404 from "./components/Page404";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HostLayout from "./components/HostLayout";
 import Layout from "./components/Layout";
@@ -35,6 +36,7 @@ function App() {
             </Route>
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<Page404 />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

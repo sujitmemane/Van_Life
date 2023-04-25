@@ -29,44 +29,53 @@ const Vans = () => {
       imageUrl={van.imageUrl}
       price={van.price}
       type={van.type}
+      search={searchParams.toString()}
+      filterType={typeFilter}
     />
   ));
+
+  const handleFilterChange = (key, value) => {
+    setSearchParams((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
+  };
   return (
     <div className="mx-auto container mt-24">
       <h1 className="text-3xl  max-w-xm px-4 md:text-5xl font-bold capitalize text-center mt-8">
         Explore our vans here...
       </h1>
       <ul className="px-8 m-4 flex flex-row space-x-8">
-        <li>
-          <Link
-            to="?type=simple"
-            className={`px-8 py-2 text-white simple rounded mt-4`}
+        <li
+          className={`px-8 py-2 text-white simple rounded mt-4 cursor-pointer`}
+          onClick={() => handleFilterChange("type", "simple")}
+        >
+          Simple
+        </li>
+        <li
+          onClick={() => handleFilterChange("type", "rugged")}
+          className={`px-8 py-2 text-white rugged rounded mt-4 cursor-pointer`}
+        >
+          Rugged
+        </li>
+        <li
+          onClick={() => handleFilterChange("type", "luxury")}
+          className={`px-8 py-2 text-white luxury rounded mt-4 cursor-pointer`}
+        >
+          Luxury
+        </li>
+        {typeFilter && (
+          <li
+            className={`px-8 py-2 bg-red-300 text-white   rounded mt-4 cursor-pointer`}
+            onClick={() => handleFilterChange("type", null)}
           >
-            {" "}
-            Simple{" "}
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="?type=rugged"
-            className={`px-8 py-2 text-white rugged rounded mt-4`}
-          >
-            {" "}
-            Rugged{" "}
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="?type=luxury"
-            className={`px-8 py-2 text-white luxury rounded mt-4`}
-          >
-            {" "}
-            Luxury{" "}
-          </Link>
-        </li>
-        <li>
-          <Link to="."> Clear All </Link>
-        </li>
+            Clear All
+          </li>
+        )}
       </ul>
       <div className=" grid grid-cols-2 md:grid-cols-3 justify-items-center items-center my-4">
         {vansElements}

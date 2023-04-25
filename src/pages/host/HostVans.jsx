@@ -14,7 +14,7 @@ const HostVans = () => {
   }, []);
   const vanItems = vansList.map((van) => {
     return (
-      <Link to={`/host/vans/${van.id}`} key={van.id}>
+      <Link to={`${van.id}`} key={van.id}>
         <div className="flex  my-8 border justify-left space-x-8 cursor-pointer">
           <img src={van.imageUrl} className="h-28 w-28" />
           <div>
